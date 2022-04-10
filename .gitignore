@@ -88,3 +88,16 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
+/CMS/.vs/CMS
+/CMS/CRM.Data.Access/obj
+/CMS/CRM.Data.Access/bin/Debug/net6.0
+/CMS/CRM.Data.DataModels/bin/Debug/net6.0
+/CMS/CRM.Data.DataModels/obj
+/CMS/CRM.Data.Models/bin/Debug/net6.0
+/CMS/CRM.Data.Models/obj
+/CMS/CRM.Database/bin/Debug
+/CMS/CRM.Database/obj/Debug
+/CMS/CRM.DatabaseStorage/bin/Debug
+/CMS/CRM.DatabaseStorage/obj/Debug
+/CMS/CRM.GrpcService/bin/Debug/net6.0
+/CMS/CRM.GrpcService/obj
