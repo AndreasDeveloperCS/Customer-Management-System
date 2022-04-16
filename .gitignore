@@ -1,103 +1,38 @@
-# Xcode
-#
-# gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
-
-## User settings
-xcuserdata/
-
-## compatibility with Xcode 8 and earlier (ignoring not required starting Xcode 9)
-*.xcscmblueprint
-*.xccheckout
-
-## compatibility with Xcode 3 and earlier (ignoring not required starting Xcode 4)
-build/
-DerivedData/
-*.moved-aside
-*.pbxuser
-!default.pbxuser
-*.mode1v3
-!default.mode1v3
-*.mode2v3
-!default.mode2v3
-*.perspectivev3
-!default.perspectivev3
-
-## Obj-C/Swift specific
-*.hmap
-
-## App packaging
-*.ipa
-*.dSYM.zip
-*.dSYM
-
-## Playgrounds
-timeline.xctimeline
-playground.xcworkspace
-
-# Swift Package Manager
-#
-# Add this line if you want to avoid checking in source code from Swift Package Manager dependencies.
-# Packages/
-# Package.pins
-# Package.resolved
-# *.xcodeproj
-#
-# Xcode automatically generates this directory with a .xcworkspacedata file and xcuserdata
-# hence it is not needed unless you have added a package configuration file to your project
-# .swiftpm
-
-.build/
-
-# CocoaPods
-#
-# We recommend against adding the Pods directory to your .gitignore. However
-# you should judge for yourself, the pros and cons are mentioned at:
-# https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
-#
-# Pods/
-#
-# Add this line if you want to avoid checking in source code from the Xcode workspace
-# *.xcworkspace
-
-# Carthage
-#
-# Add this line if you want to avoid checking in source code from Carthage dependencies.
-# Carthage/Checkouts
-
-Carthage/Build/
-
-# Accio dependency management
-Dependencies/
-.accio/
-
-# fastlane
-#
-# It is recommended to not store the screenshots in the git repo.
-# Instead, use fastlane to re-generate the screenshots whenever they are needed.
-# For more information about the recommended setup visit:
-# https://docs.fastlane.tools/best-practices/source-control/#source-control
-
-fastlane/report.xml
-fastlane/Preview.html
-fastlane/screenshots/**/*.png
-fastlane/test_output
-
-# Code Injection
-#
-# After new code Injection tools there's a generated folder /iOSInjectionProject
-# https://github.com/johnno1962/injectionforxcode
-
-iOSInjectionProject/
-/CMS/.vs/CMS
+/CMS/.vs
+/CMS/.vs/
+/CMS/CMS.API/bin
+/CMS/CMS.API/obj
+/CMS/CMS.Data.Models/bin
+/CMS/CMS.Data.Models/obj
+/CMS/CMS.Data.Access/obj/
+/CMS/CMS.Data.Access/bin/
+/CMS/CMS.Data.DataModels/bin
+/CMS/CMS.Data.DataModels/obj
+/CMS/CMS.Database/bin
+/CMS/CMS.Database/obj
+/CMS/CRM.API.UnitTests/bin
+/CMS/CRM.API.UnitTests/obj
+/CMS/UnitTests/CRM.API.UnitTests/bin
+/CMS/UnitTests/CRM.API.UnitTests/obj
+/CMS/CMS.Data.Access.UnitTests/bin
+/CMS/CMS.Data.Access.UnitTests/obj
+/CMS/CMS.Data.Models.UnitTests/bin
+/CMS/CMS.Data.Models.UnitTests/obj
+/CMS/CMS.Data.Services.UnitTests/bin
+/CMS/CMS.Data.Services.UnitTests/obj
+/CMS/CMS.Services/bin
+/CMS/CMS.Services/obj
+/CMS/CMS.Data.Database/bin
+/CMS/CMS.Data.Database/obj
+/CMS/CRM.Data.Access/bin
 /CMS/CRM.Data.Access/obj
-/CMS/CRM.Data.Access/bin/Debug/net6.0
-/CMS/CRM.Data.DataModels/bin/Debug/net6.0
-/CMS/CRM.Data.DataModels/obj
-/CMS/CRM.Data.Models/bin/Debug/net6.0
-/CMS/CRM.Data.Models/obj
-/CMS/CRM.Database/bin/Debug
-/CMS/CRM.Database/obj/Debug
-/CMS/CRM.DatabaseStorage/bin/Debug
-/CMS/CRM.DatabaseStorage/obj/Debug
-/CMS/CRM.GrpcService/bin/Debug/net6.0
-/CMS/CRM.GrpcService/obj
+/CMS/CMS.Services.UnitTests/bin
+/CMS/CMS.Services.UnitTests/obj
+/CMS/CMS.Data.Access/bin
+/CMS/CMS.Data.Access/obj
+/CMS/CMS.Services.UnitTests/bin
+/CMS/CMS.Services.UnitTests/obj
+/CMS/CMS.Data.Database/CMS.Data.Database.jfm
+/CMS/CMS.Data.Database/CMS.Data.Database.dbmdl
+/CMS/CMS.API.UnitTests/bin/Debug/net6.0
+/CMS/CMS.Data.Models/.vs/CMS.Data.Models
