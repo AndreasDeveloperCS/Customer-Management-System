@@ -159,6 +159,7 @@ namespace CMS.API.Controllers
         {
             try
             {
+                order.UserCreated = string.IsNullOrEmpty(order.UserCreated) ? CurrentUserName : order.UserCreated;
                 var isSuccess = await _orders.CreateOrderAsync(order, token);
                 if (isSuccess > 0)
                 {
@@ -187,10 +188,11 @@ namespace CMS.API.Controllers
         {
             try
             {
+                order.UserModified = string.IsNullOrEmpty(order.UserModified) ? CurrentUserName : order.UserModified;
                 var isSuccess = await _orders.UpdateOrderAsync(order, token);
                 if (isSuccess > 0)
                 {
-                    return Ok($"New Order Id={isSuccess} has been updated");
+                    return Ok($"New Order Id={isSuccess} has been updated.");
                 }
                 else
                 {

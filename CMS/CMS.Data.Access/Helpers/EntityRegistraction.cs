@@ -9,9 +9,11 @@ namespace CMS.Data.Access.Helpers
         public static void AddDb(this IServiceCollection services, IConfiguration configuration)
         {
             var connectionString = configuration.GetConnectionString("DefaultConnection");
-            services.AddDbContext<EntitiesContext>(options =>
+            services.AddDbContext<EntitiesContext>(options => {
                 options.UseSqlServer(connectionString,
-                    b => b.MigrationsAssembly(typeof(EntitiesContext).Assembly.FullName)));
+                    b => b.MigrationsAssembly(typeof(EntitiesContext).Assembly.FullName));
+                options.EnableSensitiveDataLogging(true);
+            });
         }
     }
 }

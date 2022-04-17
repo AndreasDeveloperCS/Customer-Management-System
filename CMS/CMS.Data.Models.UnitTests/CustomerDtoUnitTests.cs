@@ -56,8 +56,8 @@ namespace CMS.Data.Models.UnitTests
             Assert.NotNull(order.Items);
             Assert.NotNull(order.Items.First().Order);
             Assert.AreEqual(1, order.Items.Count());
-            Assert.AreEqual(1, order.Items.First().Product);
-            Assert.AreEqual(1, order.Items.First());
+            Assert.AreEqual("Product 1", order.Items.First().Product.Name);
+            Assert.AreEqual(100, order.Items.First().Quantity);
         }
     }
 }

@@ -11,5 +11,8 @@
 
         public int ProductId { get; set; }
         public ProductDto Product { get; set; }
+
+        public string UserCreated { get; set; }
+        public string UserModified { get; set; }
     }
 }

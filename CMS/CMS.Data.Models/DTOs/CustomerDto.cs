@@ -8,5 +8,7 @@
         public string Address { get; set; }
         public string PostalCode { get; set; }
         public virtual IEnumerable<OrderDto> Orders { get; set; }
+        public string UserCreated { get; set; }
+        public string UserModified { get; set; }
     }
 }

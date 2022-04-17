@@ -83,7 +83,8 @@ namespace CMS.Data.Access.Helpers
                 LastName = customer.LastName,
                 PostalCode = customer.PostalCode,
                 Address = customer.Address,
-                Orders = customer?.Orders.Select(s => s.ToOrder()),
+                UserCreated = customer.UserCreated,
+                UserModified = customer.UserModified
             };
         }
 
@@ -98,7 +99,9 @@ namespace CMS.Data.Access.Helpers
                 Id = order.Id,
                 OrderDate = order.OrderDate,
                 Items = order.Items?.Select(s => s.ToItem()),
-                OrderCustomerId = order.CustomerId
+                OrderCustomerId = order.CustomerId,
+                UserCreated = order.UserCreated,
+                UserModified = order.UserModified
             };
         }
 
@@ -113,7 +116,9 @@ namespace CMS.Data.Access.Helpers
                 Id = item.Id,
                 Quantity = item.Quantity,
                 Order = item.Order.ToOrder(),
-                OrderId = item.OrderId
+                OrderId = item.OrderId,
+                UserCreated = item.UserCreated,
+                UserModified = item.UserModified
             };
         }
     }

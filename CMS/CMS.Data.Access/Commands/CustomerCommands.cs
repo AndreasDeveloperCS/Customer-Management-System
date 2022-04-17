@@ -66,7 +66,7 @@ namespace CMS.Data.Access.Commands
             {
                 throw new ArgumentNullException(nameof(customer));
             }
-            return await _repository.UpdateCustomerAsync(customer.ToCustomer(), token);
+            return await _repository.DeleteCustomerAsync(customer.ToCustomer(), token);
         }
     }
 }

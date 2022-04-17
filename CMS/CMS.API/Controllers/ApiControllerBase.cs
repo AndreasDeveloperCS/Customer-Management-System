@@ -10,19 +10,26 @@ namespace CMS.API.Controllers
         {
             get
             {
-                ClaimsPrincipal identity = Thread.CurrentPrincipal as ClaimsPrincipal ?? HttpContext.User;
-                Claim claim = identity?.Claims?.FirstOrDefault(item => item.Type == ClaimTypes.NameIdentifier);
-
-                if(claim != null)
+                try
                 {
-                    return claim.Value;
-                }
-                if (!string.IsNullOrEmpty(Thread.CurrentPrincipal?.Identity?.Name))
-                {
-                    return Thread.CurrentPrincipal?.Identity?.Name;
-                }
+                    ClaimsPrincipal identity = Thread.CurrentPrincipal as ClaimsPrincipal ?? HttpContext.User;
+                    Claim claim = identity?.Claims?.FirstOrDefault(item => item.Type == ClaimTypes.NameIdentifier);
 
-                return User.Identity.Name;
+                    if (claim != null)
+                    {
+                        return claim.Value;
+                    }
+                    if (!string.IsNullOrEmpty(Thread.CurrentPrincipal?.Identity?.Name))
+                    {
+                        return Thread.CurrentPrincipal?.Identity?.Name;
+                    }
+
+                    return User?.Identity?.Name;
+                } 
+                catch (Exception ex)
+                {
+                    return Environment.UserName;
+                }
             }
         }
     }

@@ -52,7 +52,11 @@ namespace CMS.Data.Access.Configuration
 
         private static DbContextOptions GetOptions(string connectionString)
         {
-            return SqlServerDbContextOptionsExtensions.UseSqlServer(new DbContextOptionsBuilder(), connectionString).Options;
+            var dbContextOptions = SqlServerDbContextOptionsExtensions
+                        .UseSqlServer(new DbContextOptionsBuilder(), connectionString)
+                        .EnableSensitiveDataLogging(sensitiveDataLoggingEnabled: true);
+
+            return dbContextOptions.Options;
         }
     }
 }

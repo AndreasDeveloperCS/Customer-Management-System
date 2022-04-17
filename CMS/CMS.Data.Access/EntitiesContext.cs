@@ -20,7 +20,6 @@ namespace CMS.Data.Access
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
             modelBuilder.Entity<Customer>()
                 .HasMany(p => p.Orders)
                 .WithOne(b => b.Customer)

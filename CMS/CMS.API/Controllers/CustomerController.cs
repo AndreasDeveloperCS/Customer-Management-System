@@ -88,6 +88,7 @@ namespace CMS.API.Controllers
         {
             try
             {
+                customer.UserCreated = string.IsNullOrEmpty(customer.UserCreated) ?  CurrentUserName : customer.UserCreated;
                 var isSuccess = await _customers.CreateCustomerAsync(customer, token);
                 if (isSuccess > 0)
                 {
@@ -117,6 +118,7 @@ namespace CMS.API.Controllers
         {
             try
             {
+                customer.UserModified = string.IsNullOrEmpty(customer.UserModified) ? CurrentUserName : customer.UserModified;
                 var isSuccess = await _customers.UpdateCustomerAsync(customer, token);
                 if (isSuccess > 0)
                 {

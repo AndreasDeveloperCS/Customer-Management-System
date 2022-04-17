@@ -1,5 +1,6 @@
 ﻿using CMS.Data.Access.Models;
 using CMS.Data.Access.Repositories.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace CMS.Data.Access.Repositories
 {
@@ -26,15 +27,36 @@ namespace CMS.Data.Access.Repositories
 
         public int DeleteOrder(Order order)
         {
-            _context.Orders.Remove(order);
-            _context.SaveChanges();
+            var deletingItem = _context.Orders.Find(order.Id);
+            if (deletingItem != null)
+            {
+                if (_context.Entry(deletingItem).State == EntityState.Detached)
+                {
+                    _context.Orders.Attach(deletingItem);
+                }
+
+                _context.Orders.Remove(deletingItem);
+
+                 _context.SaveChanges();
+            }
             return order.Id;
         }
 
         public async Task<int> DeleteOrderAsync(Order order, CancellationToken token)
         {
-            _context.Orders.Remove(order);
-            await _context.SaveChangesAsync(token);
+            var deletingItem = _context.Orders.Find(order.Id);
+            if (deletingItem != null)
+            {
+                if (_context.Entry(deletingItem).State == EntityState.Detached)
+                {
+                    _context.Orders.Attach(deletingItem);
+                }
+
+                _context.Orders.Remove(deletingItem);
+
+                await _context.SaveChangesAsync(token);
+            }
+         
             return order.Id;
         }
 
@@ -54,14 +76,32 @@ namespace CMS.Data.Access.Repositories
 
         public int UpdateOrder(Order order)
         {
-            _context.Orders.Update(order);
-             _context.SaveChanges();
+            var trackedOrder = _context.Orders.Find(order.Id);
+            if(trackedOrder != null)
+            {
+                _context.Entry(trackedOrder).CurrentValues.SetValues(order);
+            }
+            else
+            {
+                _context.Orders.Add(order);
+            }
+
+            _context.SaveChanges();
             return order.Id;
         }
 
         public async Task<int> UpdateOrderAsync(Order order, CancellationToken token)
         {
-            _context.Orders.Update(order);
+            var trackedOrder = _context.Orders.Find(order.Id);
+            if (trackedOrder != null)
+            {
+                _context.Entry(trackedOrder).CurrentValues.SetValues(order);
+            }
+            else
+            {
+                _context.Orders.Add(order);
+            }
+
             await _context.SaveChangesAsync(token);
             return order.Id;
         }
