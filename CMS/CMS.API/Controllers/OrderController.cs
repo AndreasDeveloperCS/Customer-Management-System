@@ -162,7 +162,7 @@ namespace CMS.API.Controllers
                 var isSuccess = await _orders.CreateOrderAsync(order, token);
                 if (isSuccess > 0)
                 {
-                    return Ok($"New Order Id={isSuccess} Has been created ");
+                    return Ok($"New Order Id={isSuccess} has been created.");
                 }
                 else
                 {
@@ -190,7 +190,7 @@ namespace CMS.API.Controllers
                 var isSuccess = await _orders.UpdateOrderAsync(order, token);
                 if (isSuccess > 0)
                 {
-                    return Ok($"New Order Id={isSuccess} Has been updated");
+                    return Ok($"New Order Id={isSuccess} has been updated");
                 }
                 else
                 {
@@ -218,7 +218,7 @@ namespace CMS.API.Controllers
                 var isSuccess = await _orders.DeleteOrderAsync(order, token);
                 if (isSuccess > 0)
                 {
-                    return Ok($"New Order Id={isSuccess} Has been updated");
+                    return Ok($"New Order Id={isSuccess} has been deleted.");
                 }
                 else
                 {

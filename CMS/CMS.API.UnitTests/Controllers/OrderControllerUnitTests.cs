@@ -66,6 +66,7 @@ namespace CMS.API.UnitTests.Controllers
             var result = await _orderController.GetByIdAsync(1, CancellationToken.None) as OkObjectResult;
 
             Assert.AreEqual(200, result?.StatusCode);
+
             var actualOrder = result?.Value as OrderDto;
 
             ////Expected Quantity
@@ -84,10 +85,10 @@ namespace CMS.API.UnitTests.Controllers
             var result = await _orderController.CreateAsync(_mockedOrdersData[2], CancellationToken.None) as OkObjectResult;
 
             Assert.AreEqual(200, result?.StatusCode);
-            var resultOrder = result?.Value as OrderDto;
+            var actualResult = result?.Value as string;
 
             ////Expected Quantity
-            Assert.AreEqual(3, resultOrder);
+            Assert.AreEqual("New Order Id=3 has been created.", actualResult);
         }
 
 
@@ -97,10 +98,10 @@ namespace CMS.API.UnitTests.Controllers
             var result = await _orderController.UpdateAsync(_mockedOrdersData[2], CancellationToken.None) as OkObjectResult;
 
             Assert.AreEqual(200, result?.StatusCode);
-            var resultOrder = result?.Value as OrderDto;
+            var actualResult = result?.Value as string;
 
             ////Expected Quantity
-            Assert.AreEqual(3, resultOrder);
+            Assert.AreEqual("New Order Id=3 has been updated.", actualResult);
         }
 
         [Test]
@@ -109,10 +110,10 @@ namespace CMS.API.UnitTests.Controllers
             var result = await _orderController.DeleteAsync(_mockedOrdersData[2], CancellationToken.None) as OkObjectResult;
 
             Assert.AreEqual(200, result?.StatusCode);
-            var resultOrder = result?.Value as OrderDto;
+            var actualResult = result?.Value as string;
 
             ////Expected Quantity
-            Assert.AreEqual(3, resultOrder);
+            Assert.AreEqual("New Order Id=3 has been deleted.", actualResult);
         }
 
         private void PrepareMockData()

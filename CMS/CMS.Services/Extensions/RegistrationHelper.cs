@@ -13,7 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace CMS.Services.Extensions
 {
-    public static class RegistrationHelper
+    public static class RegistrationExtensions
     {
         public static void Add(this IServiceCollection services, IConfiguration configuration)
         {

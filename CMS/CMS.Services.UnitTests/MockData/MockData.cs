@@ -10,9 +10,11 @@ namespace CMS.Services.UnitTests.MockData
             var customer = GetCustomerDto(idCustomer, $"Name{idCustomer}", $"Surname{idCustomer}", "11111", "Street", new OrderDto[0]);
 
             var order = GetOrderDto(idOrder, DateTime.Now, 10000, idCustomer, customer, new ItemDto[0]);
-            var item1 = GetItemDto(1, "Item1", idOrder, order);
-            var item2 = GetItemDto(2, "Item2", idOrder, order);
-            var item3 = GetItemDto(3, "Item3", idOrder, order);
+
+            var item1 = GetItemDto(1, idOrder, 1, order, GetProductDto(1, "Name1", 0.0m, "per/item"));
+            var item2 = GetItemDto(2, idOrder, 2, order, GetProductDto(2, "Name2", 0.0m, "per/item"));
+            var item3 = GetItemDto(3, idOrder, 3, order, GetProductDto(3, "Name3", 0.0m, "per/item"));
+
             order.Items = new[] { item1, item2, item3 };
 
             customer.Orders = new[] { order };
@@ -25,13 +27,17 @@ namespace CMS.Services.UnitTests.MockData
             var customer = GetCustomerDto(id, $"Name{id}", $"Surname{id}", "11111", "Street", new OrderDto[1]);
 
             var order1 = GetOrderDto(1, DateTime.Now, 10000, id, customer, new ItemDto[0]);
-            var item1 = GetItemDto(1, "Item1", 1, order1);
-            var item2 = GetItemDto(2, "Item2", 1, order1);
+
+            var item1 = GetItemDto(1, 1, 1, order1, GetProductDto(1, "Name1", 1.0m, "per/item"));
+            var item2 = GetItemDto(2, 1, 2, order1, GetProductDto(2, "Name2", 1.0m, "per/item"));
+
             order1.Items = new[] { item1, item2 };
 
             var order2 = GetOrderDto(1, DateTime.Now, 10000, id, customer, new ItemDto[1]);
-            var item3 = GetItemDto(3, "Item3", 2, order2);
-            var item4 = GetItemDto(4, "Item4", 2, order2);
+
+            var item3 = GetItemDto(1, 2, 3, order2, GetProductDto(3, "Name3", 2.0m, "per/item"));
+            var item4 = GetItemDto(2, 2, 4, order2, GetProductDto(4, "Name4", 2.0m, "per/item"));
+
             order1.Items = new[] { item3, item4 };
 
             customer.Orders = new[] { order1, order2 };
@@ -65,13 +71,26 @@ namespace CMS.Services.UnitTests.MockData
             };
         }
 
-        public static ItemDto GetItemDto(int id, string name, int orderId, OrderDto order)
+        public static ItemDto GetItemDto(int id, int orderId, int productId, OrderDto order, ProductDto product)
         {
             return new ItemDto
             {
                 Id = id,
                 Order = order,
-                OrderId = orderId
+                OrderId = orderId,
+                Product = product,
+                ProductId = productId
+            };
+        }
+
+        public static ProductDto GetProductDto(int id, string name, decimal price, string measuringUnit)
+        {
+            return new ProductDto
+            {
+                Id = id,
+                Name = name,
+                PricePerUnit = price,
+                MeasuringUnit = measuringUnit
             };
         }
     }
