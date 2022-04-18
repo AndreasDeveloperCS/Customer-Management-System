@@ -12,6 +12,9 @@ using System.Threading.Tasks;
 
 namespace CMS.API.UnitTests.Controllers
 {
+    /// <summary>
+    /// Order Controller Unit Tests
+    /// </summary>
     [TestFixture]
     public class OrderControllerUnitTests
     {
@@ -35,6 +38,9 @@ namespace CMS.API.UnitTests.Controllers
             _orderController = new OrderController(_loggerMock.Object, _customerServiceMock.Object, _orderServiceMock.Object);
         }
 
+        /// <summary>
+        /// Checks whether All Orders are Retreived correctly Asyncronously
+        /// </summary>
         [Test]
         public async Task CheckGetAllAsync_WorksCorrectly()
         {
@@ -60,6 +66,9 @@ namespace CMS.API.UnitTests.Controllers
             Assert.AreEqual(_mockedOrdersData[2].Items.Count(), actualOrders[2].Items.Count());
         }
 
+        /// <summary>
+        /// Checks whether Order is Retreived correctly By Id Asyncronously
+        /// </summary>
         [Test]
         public async Task CheckGetByIdAsync_WorksCorrectly()
         {
@@ -79,6 +88,9 @@ namespace CMS.API.UnitTests.Controllers
             Assert.AreEqual(_mockedOrdersData[0].Customer.Address, actualOrder.Customer.Address);
         }
 
+        /// <summary>
+        /// Check whether Order is Created correctly Asyncronously
+        /// </summary>
         [Test]
         public async Task CheckCustomerCreationAsync_WorksCorrectly()
         {
@@ -91,9 +103,11 @@ namespace CMS.API.UnitTests.Controllers
             Assert.AreEqual("New Order Id=3 has been created.", actualResult);
         }
 
-
+        /// <summary>
+        /// Check whether Order is Updated correctly Asyncronously
+        /// </summary>
         [Test]
-        public async Task CheckCustomerUpdateAsync_WorksCorrectly()
+        public async Task CheckOrderUpdateAsync_WorksCorrectly()
         {
             var result = await _orderController.UpdateAsync(_mockedOrdersData[2], CancellationToken.None) as OkObjectResult;
 
@@ -104,8 +118,11 @@ namespace CMS.API.UnitTests.Controllers
             Assert.AreEqual("New Order Id=3 has been updated.", actualResult);
         }
 
+        /// <summary>
+        /// Check whether Order is Deleted correctly Asyncronously
+        /// </summary>
         [Test]
-        public async Task CheckCustomerDeleteAsync_WorksCorrectly()
+        public async Task CheckOrderDeleteAsync_WorksCorrectly()
         {
             var result = await _orderController.DeleteAsync(_mockedOrdersData[2], CancellationToken.None) as OkObjectResult;
 

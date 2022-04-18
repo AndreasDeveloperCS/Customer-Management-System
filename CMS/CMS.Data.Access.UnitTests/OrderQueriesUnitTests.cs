@@ -70,8 +70,12 @@ namespace CMS.Data.Access.UnitTests
             Assert.AreEqual(10000.00M, order.TotalPrice);
         }
 
+        /// <summary>
+        ///  Get By Id Asyncronously
+        /// </summary>
+        /// <returns></returns>
         [Test]
-        public async Task GetIdAsync_RetrivesRecordsSuccessfully()
+        public async Task GetByIdAsync_RetrivesRecordsSuccessfully()
         {
             var order = await _orderQueries.GetOrderByIdAsync(1, CancellationToken.None);
 

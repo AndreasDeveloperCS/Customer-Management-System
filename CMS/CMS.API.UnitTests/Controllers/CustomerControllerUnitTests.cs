@@ -12,6 +12,9 @@ using System.Threading.Tasks;
 
 namespace CMS.API.UnitTests.Controllers
 {
+    /// <summary>
+    ///  Customer Controller Unit Tests
+    /// </summary>
     [TestFixture]
     public class CustomerControllerUnitTests
     {
@@ -30,6 +33,9 @@ namespace CMS.API.UnitTests.Controllers
             _customerController = new CustomerController(_loggerMock.Object, _customerServiceMock.Object);
         }
 
+        /// <summary>
+        /// Check whether Customers are Retreived correctly by Id Asyncronously
+        /// </summary>
         [Test]
         public async Task CheckGetAllAsync_WorksCorrectly()
         {
@@ -56,9 +62,8 @@ namespace CMS.API.UnitTests.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Check whether Customer is Retreived correctly by Id Asyncronously
         /// </summary>
-        /// <returns></returns>
         [Test]
         public async Task CheckGetByIdAsync_WorksCorrectly()
         {
@@ -78,9 +83,8 @@ namespace CMS.API.UnitTests.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Check whether Customer is Created correctly Asyncronously
         /// </summary>
-        /// <returns></returns>
         [Test]
         public async Task CheckCustomerCreationAsync_WorksCorrectly()
         {
@@ -100,9 +104,8 @@ namespace CMS.API.UnitTests.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Check whether Customer is Updated correctly Asyncronously
         /// </summary>
-        /// <returns></returns>
         [Test]
         public async Task CheckCustomerUpdateAsync_WorksCorrectly()
         {
@@ -121,9 +124,8 @@ namespace CMS.API.UnitTests.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Check whether Customer is Deleted correctly Asyncronously
         /// </summary>
-        /// <returns></returns>
         [Test]
         public async Task CheckCustomerDeleteAsync_WorksCorrectly()
         {
@@ -140,7 +142,6 @@ namespace CMS.API.UnitTests.Controllers
                                           It.IsAny<Exception>(),
                                           (Func<It.IsAnyType, Exception, string>)It.IsAny<object>()));
         }
-
 
         private void PrepareMockData()
         {
